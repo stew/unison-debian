@@ -1,0 +1,28 @@
+# https://docs.haskellstack.org/en/stable/travis_ci/
+# run on containerized infrastructure hopefully
+dist: trusty
+sudo: false
+language: generic
+
+# Caching so the next build will be fast too.
+cache:
+  directories:
+  - $HOME/.stack
+
+before_cache:
+# Do any cleanup here to avoid caching junk.
+
+before_install:
+# Download and unpack the stack executable
+- mkdir -p ~/.local/bin
+- export PATH=$HOME/.local/bin:$PATH
+- travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+
+install:
+- stack ghc -- --version
+- stack --no-terminal build
+- stack --no-terminal exec tests
+- stack --no-terminal exec transcripts
+# fail if running transcripts modified any versioned files
+- git diff
+- x=`git status --porcelain -uno` bash -c 'if [[ -n $x ]]; then echo "$x" && false; fi'

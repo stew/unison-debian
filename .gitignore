@@ -1,0 +1,8 @@
+# Unison
+.unison*
+test-output
+transcript-*
+
+# Stack
+.stack-work
+stack.yaml.lock
