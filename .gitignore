@@ -6,3 +6,7 @@ transcript-*
 # Stack
 .stack-work
 stack.yaml.lock
+
+# Debian
+.debhelper
+debhelper-build-stamp

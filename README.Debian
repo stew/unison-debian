@@ -1,0 +1,13 @@
+This repository is created to maintain Debian packages of [The Unison Codebase Manager](https://unisonweb.org). We are using [git-buildpackage](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html)
+
+There are 3 main branches:
+
+ - upstream - tracks the master branch of [Unison](https://github.com/unisonweb/unison)
+ - pristine-tar - a branch that can recreate the .orig.tar.gz files that are imported via `gbp import-orig` using [pristine-tar](https://salsa.debian.org/debian/pristine-tar)
+ - master - The branch adding the Debian packaging.
+
+Building:
+
+`gbp buildpackage` will build the package.
+`gbp import-orig ../unison_0.0.1.orig.tar.gz` will import a new upstream tarball
+`./debian/scripts/create-orig-tar-gz.sh 0.0.1~M2 release/m2` will create a new upstream tarball from the `release/m2` tag for version `0.0.1~M2`
