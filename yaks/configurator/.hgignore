@@ -1,0 +1,10 @@
+.*\.(?:aux|h[ip]|o|orig|out|pdf|prof|ps|rej)$
+^(?:dist|\.DS_Store)$
+
+syntax: glob
+cabal.sandbox.config
+.cabal-sandbox
+*~
+.*.swp
+.\#*
+\#*
