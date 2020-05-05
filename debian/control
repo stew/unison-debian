@@ -1,0 +1,17 @@
+Source: unisonweb
+Section: devel
+Priority: optional
+Maintainer: Stew O'Connor <stew@vireo.org.
+Build-Depends: debhelper (>=11~), libncurses-dev, haskell-stack
+Standards-Version: 4.1.4
+Homepage: https://unisonweb.org
+Vcs-Browser: https://github.com/unisonweb/unison
+Vcs-Git: https://github.com/unisonweb/unison.git
+
+Package: unisonweb
+Architecture: any
+Section: devel
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}, libncurses5, less, locales
+Description: A functional programming language
+
